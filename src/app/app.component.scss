@@ -1,0 +1,22 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: hotpink;
+}
+
+li {
+    float: left;
+}
+
+li:not(:first-child) {
+    margin-left: 10px;
+}
+
+
+
+a {
+    color: whitesmoke;
+}
+

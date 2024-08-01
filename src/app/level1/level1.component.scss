@@ -1,0 +1,26 @@
+table.tictatoe-board {
+    padding: none;
+}
+
+table.tictactoe-board td {
+    --width: 75px;
+
+    border: 1px solid cyan;
+    width: var(--width);
+    height: var(--width);
+}
+
+.occupied-X {
+    background-color: pink;
+}
+
+.occupied-O {
+    background-color: lightblue;
+}
+
+td {
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
