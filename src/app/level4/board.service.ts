@@ -1,31 +1,15 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-level2',
-  templateUrl: './level2.component.html',
-  styleUrls: ['./level2.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class Level2Component {
+export class BoardService {
   private currentPlayerIx!: number;
   private currentWinnerIx!: number;
-  private playerNames: string[];
   public boardContent! : number [][];
 
   constructor() {
-    this.playerNames = ['', 'X', 'O'];
-    this.onRestart();
-  }
-
-  public getPlayerName(col: number, row: number): string {
-    return this.playerNames[this.boardContent[row][col]];
-  }
-
-  public getStyle(col: number, row: number): string {
-    if (this.boardContent[row][col] !== 0) {
-    return `occupied-${this.getPlayerName(col, row)}`;
-    }
-
-    return '';
+    this.restart();
   }
 
   public set(col: number, row: number): void {
@@ -45,25 +29,6 @@ export class Level2Component {
     public get winnerIndex(): number {
       return this.currentWinnerIx;
     }
-
-    public getWinnerName(): string {
-      return this.playerNames[this.currentWinnerIx];
-    }
-
-    public onRestart(): void {
-      this.boardContent = [
-        [ 0, 0, 0],
-        [ 0, 0, 0],
-        [ 0, 0, 0],
-      ];
-      this.currentPlayerIx = 1;
-      this.currentWinnerIx = 0;
-    }
-
-    /**
-     * Returns the winner index (1 or 2) or if no winner.
-     * @returns Player (1 or 2) who has won, or 0 if there is no winner yet
-     */
 
     private getWinnerIndex(): number {
       const board = this.boardContent;
@@ -111,5 +76,15 @@ export class Level2Component {
 
       return 0;
     }
-  }
+
+    public restart(): void {
+      this.boardContent = [
+        [ 0, 0, 0],
+        [ 0, 0, 0],
+        [ 0, 0, 0],
+      ];
+      this.currentPlayerIx = 1;
+      this.currentWinnerIx = 0;
+    }
+}
 

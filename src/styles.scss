@@ -1,11 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: bisque;
+    color: aliceblue;
+}
+
 
 body {
-    font-family: cursive;
+    font-family: 'Courier New', Courier, monospace;
     max-width: 720px;
     margin: 0 auto;
 }
 
 ul {
-    background-color: khaki;
+    background-color: rgb(239, 239, 211);
 }
+
+li {
+    float: left;
+}
+
+li:not(:first-child) {
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+  
